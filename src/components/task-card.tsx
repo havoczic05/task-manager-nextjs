@@ -6,7 +6,7 @@ import { Task } from "@prisma/client";
 import { TaskButtonDelete } from "./task-button-delete";
 import Link from "next/link";
 
-function TaskCard({ task }: { task: Task }) {
+export default function TaskCard({ task }: { task: Task }) {
   return (
     <Card>
       <CardHeader className="flex flex-row justify-between">
@@ -41,5 +41,3 @@ function TaskCard({ task }: { task: Task }) {
     </Card>
   )
 }
-
-export default TaskCard

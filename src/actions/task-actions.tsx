@@ -9,7 +9,6 @@ export async function createTask(formData: FormData) {
   const description = formData.get("description")?.toString();
   const priority = formData.get("priority")?.toString();
 
-  console.log({ name, description, priority });
 
   if (!name || !description || !priority) {
     return;
@@ -22,7 +21,7 @@ export async function createTask(formData: FormData) {
       priority: priority
     }
   })
-  console.log(newTask);
+  console.log(newTask)
   redirect("/")
 }
 

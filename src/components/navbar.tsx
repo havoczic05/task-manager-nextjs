@@ -8,7 +8,7 @@ function Navbar() {
         <h1
           className="text-3xl font-bold text-gray-800 dark:text-gray-100"
         >
-          Next Actions CRUD
+          Task Manager | Next.js, Prisma, Tailwind, ShadCN UI
         </h1>
       </Link>
       <div className="flex gap-x-2 items-center">
