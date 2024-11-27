@@ -41,3 +41,28 @@ export async function removeTask(formData: FormData) {
   })
   revalidatePath("/")
 }
+
+export async function updateTask(formdata: FormData) {
+  const id = formdata.get("id")?.toString();
+  const name = formdata.get("name")?.toString();
+  const description = formdata.get("description")?.toString();
+  const priority = formdata.get("priority")?.toString();
+
+  if (!id || !name || !description || !priority) {
+    return;
+  }
+
+  await prisma.task.update({
+    where: {
+      id: parseInt(id)
+    },
+    data: {
+      name: name,
+      description: description,
+      priority: priority
+    }
+  })
+
+  redirect("/")
+
+}

@@ -1,5 +1,5 @@
-import { createTask } from "@/actions/task-actions"
-import { Button } from "@/components/ui/button"
+import { createTask, updateTask } from "@/actions/task-actions"
+import { Button, buttonVariants } from "@/components/ui/button"
 import {
   Card,
   CardContent,
@@ -19,12 +19,16 @@ import {
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { Task } from "@prisma/client"
+import Link from "next/link"
 
 
-export function TaskForm({ task }): { task: Task } {
+export function TaskForm({ task }: { task: Task }) {
+
+  const functionAction = task?.id ? updateTask : createTask;
 
   return (
-    <form action={createTask}>
+    <form action={functionAction}>
+      <input type="hidden" name="id" value={task?.id} />
       <Card className="w-[350px]">
         <CardHeader>
           <CardTitle>Create Task</CardTitle>
@@ -44,7 +48,7 @@ export function TaskForm({ task }): { task: Task } {
                 name="description"
                 id="description"
                 placeholder="Description of your task"
-                defaultValue={task?.description}
+                defaultValue={task?.description || ""}
 
               />
             </div>
@@ -65,8 +69,8 @@ export function TaskForm({ task }): { task: Task } {
           </div>
         </CardContent>
         <CardFooter className="flex justify-between">
-          <Button variant="outline">Cancel</Button>
-          <Button>Deploy</Button>
+          <Link href="/" className={buttonVariants({ variant: "outline" })}>Cancel</Link>
+          <Button>{task?.id ? "Update Task" : "Create Task"}</Button>
         </CardFooter>
       </Card>
     </form>

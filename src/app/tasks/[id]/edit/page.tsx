@@ -1,5 +1,7 @@
 import { TaskForm } from "@/app/new/task-form";
 import prisma from "@/lib/prisma";
+import { redirect } from "next/navigation";
+
 
 export default async function TaskPageEdit({ params }: {
   params: {
@@ -15,6 +17,9 @@ export default async function TaskPageEdit({ params }: {
     }
   })
 
+  if (!task) {
+     redirect("/")
+  }
   console.log(task);
 
   return (
