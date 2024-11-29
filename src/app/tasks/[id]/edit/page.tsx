@@ -3,7 +3,7 @@ import prisma from "@/lib/prisma";
 import { redirect } from "next/navigation";
 
 type Params = Promise<{ slug: string[] }>;
-export default async function TaskPageEdit({ params }: {
+async function TaskPageEdit({ params }: {
   params: Params}) {
 
 
@@ -25,3 +25,4 @@ export default async function TaskPageEdit({ params }: {
     </div>
   )
 }
+export default TaskPageEdit

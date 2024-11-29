@@ -2,7 +2,7 @@ import TaskCard from "@/components/task-card";
 import prisma from "@/lib/prisma"
 
 
-async function HomePage() {
+export default async function HomePage() {
   const tasks = await prisma.task.findMany()
 
   return (
@@ -14,5 +14,3 @@ async function HomePage() {
     </div>
   )
 }
-
-export default HomePage
