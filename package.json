@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "prestart": "npm run build",
     "build": "prisma generate && next build",
-    "start": "next start",
+    "start": "node build/index.js",
     "lint": "next lint",
     "postinstall": "prisma generate"
   },
