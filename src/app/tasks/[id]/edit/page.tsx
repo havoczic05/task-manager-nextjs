@@ -2,15 +2,15 @@ import { TaskForm } from "@/app/new/task-form";
 import prisma from "@/lib/prisma";
 import { redirect } from "next/navigation";
 
-type Params = Promise<{ slug: string[] }>;
+type Params = Promise<{ id: string[] }>;
 async function TaskPageEdit({ params }: {
   params: Params}) {
 
 
-    const { slug } = await params;
+    const { id } = await params;
   const task = await prisma.task.findFirst({
     where: {
-      id: parseInt(slug[0])
+      id: parseInt(id[0])
     }
   })
 
