@@ -3,12 +3,12 @@ import { ModeToggle } from "./theme-toggle-button"
 import { buttonVariants } from "./ui/button"
 function Navbar() {
   return (
-    <nav className="flex justify-between pt-10 py-5 mb-4">
+    <nav className="flex justify-between pt-10 py-5 mb-4 mx-6">
       <Link href="/">
         <h1
           className="text-xl font-bold text-gray-800 dark:text-gray-100"
         >
-          Task Manager | Next.js, Prisma, Tailwind, ShadCN UI
+          Task Manager
         </h1>
       </Link>
       <div className="flex gap-x-2 items-center">

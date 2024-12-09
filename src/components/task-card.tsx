@@ -9,8 +9,8 @@ import Link from "next/link";
 
 export default function TaskCard({ task }: { task: Task }) {
   return (
-    <Card className="hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-      <CardHeader className="flex flex-row items-center justify-between bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 pb-4">
+    <Card className="flex flex-col justify-between hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+      <CardHeader className="flex flex-row items-center justify-between bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 p-4">
         <CardTitle className="text-xl font-bold truncate">
           {task.name}
         </CardTitle>
@@ -23,7 +23,7 @@ export default function TaskCard({ task }: { task: Task }) {
           {task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}
         </Badge>
       </CardHeader>
-      <CardContent className="pt-4">
+      <CardContent className="flex flex-col flex-grow justify-between pt-4">
         <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
           {task.description}
         </p>
@@ -38,7 +38,7 @@ export default function TaskCard({ task }: { task: Task }) {
           </span>
         </div>
       </CardContent>
-      <CardFooter className="flex gap-x-2 justify-end mt-3 bg-gray-50 dark:bg-gray-800 pt-4">
+      <CardFooter className="flex gap-x-2 justify-end bg-gray-50 dark:bg-gray-800 p-2">
         <TaskButtonDelete taskId={task.id} />
         <Link href={`/tasks/${task.id}/edit`} className={buttonVariants({ variant: "secondary" })}>
           Edit
